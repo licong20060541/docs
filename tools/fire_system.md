@@ -4,14 +4,41 @@ adb reboot bootloader
 
 sudo fastboot devices
 sudo fastboot flash system system.img
+sudo fastboot flash userdata userdata.img
 sudo fastboot reboot
 
-
+adb shell getprop
 其它
+make framework
+make services
 sudo fastboot flash boot boot.img
 lsusb
 adb reboot recovery，选择bootloader，按键确定
 ./flash.sh
+make update-api -j16
+make SystemUI
+mm编译模块
+repo start aaa .
+git commit --amend
+repo abandon aaa
+repo rebase
+
+私有资源，在symbols.xml中添加 <java-symbol type="dimen" name="notification_height" />
+共有资源，在public.xml中添加 <public type="dimen" name="notification_height" id="0x01050007" />
+```
+
+```
+ps ax | grep mtp
+adb root
+adb remount
+which adb
+adb kill-server
+adb start-server
+dumpsys notification
+am start -n com.android.browser/com.android.browser.BrowserActivity
+am startservice com.android.systemui/.SystemUIService
+monkey调试
+adb shell monkey -p eui.auto.letvfeedback -s 686127382 -v --pct-touch 30 --throttle 50 50000 --ignore-crashes --monitor-native-crashes
 ```
 
 #repo
@@ -36,6 +63,11 @@ adb shell dumpsys window displays
 adb shell wm size
 
 adb shell getprop | grep lcd_density
+
+显示矩形的当前值
+adb shell dumpsys window
+显示SurfaceFlinger的状态
+adb shell dumpsys SurfaceFlinger
 
 
 
