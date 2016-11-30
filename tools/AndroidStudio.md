@@ -31,6 +31,8 @@ ctrl+shift+T：当前终端上新开终端窗口，叠加
 
 Keymap到Eclipse
 
+double shift:查找file
+ctrl+shift+a:查找快捷键等
 
 scroll bottom/top  ctrl + 上下
 
