@@ -80,11 +80,14 @@ KeyguardBouncer.java
 
 
 # 界面说明
+
 ```
 首先看到的称为LockScreen界面，即滑动就消失
 接着判断是否设置UnLockScreen界面，即图案，密码等等开锁界面，设置了就显示
 
+```
 [以下参考](http://blog.csdn.net/ocean2006/article/details/8079457)
+```
 PhoneWindowManager是解锁屏模块对外交互的接口，窗口管理Service、电源管理Service等外部模块都是通过PhoneWindowManager访问Keyguard内部功能。
       KeyguardViewMediator类为解锁屏模块的中介者，以中介的身份处理keyguard状态变化，处理event、power管理、PhoneWindowManager通知等请求，并作为回调对象供解锁屏模块的其它类回调。
       KeyguardUpdateMonitor类为解锁屏模块的监听者，它负责监听时间、sim卡、运营商信息、电池信息、电话信息等状态的变化，并通知keyguard View模块更新显示。
