@@ -1,3 +1,5 @@
+查看源码版本build/core/version_defaults.mk
+
 #内存
 ubuntu系统下apt-install安装目录  /opt/Android-studio/bin
 
