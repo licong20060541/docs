@@ -1,0 +1,8 @@
+
+Android系统原生状态栏滑动弹出逻辑简要如下，供参考：
+1. 顶部向下滑动
+2. PointerEventDispatcher--onInputEvent()
+3. SystemGesturesPointerEventListener--onPointerEvent()
+4. PhoneWindowManager--mSystemGestures--onSwipeFromTop()
+5. Binder进程通信传递到SystemUI 
+如有错误请指出
