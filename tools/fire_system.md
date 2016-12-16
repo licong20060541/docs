@@ -1,5 +1,10 @@
 #烧系统
 ```
+licong10@licong10-HP-ProDesk-480-G3-MT:~/leshi/minervar/cesRSD$ find out -name fastboot
+out/host/linux-x86/obj/EXECUTABLES/fastboot_intermediates/fastboot
+out/host/linux-x86/bin/fastboot
+
+
 adb reboot bootloader
 
 sudo fastboot devices
