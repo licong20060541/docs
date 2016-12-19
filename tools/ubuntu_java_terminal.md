@@ -1,3 +1,6 @@
+文字颜色设为#708284，背景颜色设为#07242E
+
+
 Android5.x编译需要openjdk1.7版本，可以通过源直接安装
 
 Android 5.1 用到的jdk不再是Oracle 的 jdk ，而是开源的 openjdk，在ubuntu安装好后，使用如下命令安装jdk：

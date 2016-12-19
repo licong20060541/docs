@@ -4,6 +4,7 @@ licong10@licong10-HP-ProDesk-480-G3-MT:~/leshi/minervar/cesRSD$ find out -name f
 out/host/linux-x86/obj/EXECUTABLES/fastboot_intermediates/fastboot
 out/host/linux-x86/bin/fastboot
 
+adb shell--dmesg
 
 adb reboot bootloader
 
