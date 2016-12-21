@@ -1,5 +1,6 @@
 #烧系统
 ```
+
 licong10@licong10-HP-ProDesk-480-G3-MT:~/leshi/minervar/cesRSD$ find out -name fastboot
 out/host/linux-x86/obj/EXECUTABLES/fastboot_intermediates/fastboot
 out/host/linux-x86/bin/fastboot
@@ -12,6 +13,9 @@ sudo fastboot devices
 sudo fastboot flash system system.img
 sudo fastboot flash userdata userdata.img
 sudo fastboot reboot
+
+sudo adb kill-server: when show no permission
+
 
 adb shell getprop
 其它
