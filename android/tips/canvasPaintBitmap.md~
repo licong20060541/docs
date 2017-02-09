@@ -1,0 +1,145 @@
+#canvas
+```
+canvas.translate(x, y);
+canvas.drawArc(rect, 160, 220,,,)
+画出的效果是从左下开始到右下;
+  首先移动，使坐标系中心位于canvas中心，由于x轴向右为正，因此x轴下方开始就是角度为正的了，
+因此，是从左下开始的。
+
+canvas.rotate(30)--逆时针！
+
+
+```
+
+#paint
+```
+paint.measuretext--float,but no height
+paint.gettextbounds--int
+
+颜色渐变：shader渲染,sweepGradient
+边缘模糊效果：setMaskFilter(BlueMaskFilter)//close hardware acce..
+
+
+LightingColorFilter mLightingColorFilter = new LightingColorFilter(0xffffffff, 0);
+        mDrawPaint.setColorFilter(mLightingColorFilter);
+        mDrawPaint.setFilterBitmap(true);
+        mDrawPaint.setAntiAlias(true);
+
+        int mul = (int) ((1.0f - mDimAlpha) * mBitmapAlpha * 255);
+        int add = (int) ((1.0f - mDimAlpha) * (1 - mBitmapAlpha) * 255);
+        if (mBitmapShader != null) {
+            mLightingColorFilter.setColorMultiply(Color.argb(255, mul, mul, mul));
+            mLightingColorFilter.setColorAdd(Color.argb(0, add, add, add));
+            mDrawPaint.setColorFilter(mLightingColorFilter);
+            mDrawPaint.setColor(0xffffffff);
+        } else {
+            mDrawPaint.setColorFilter(null);
+            int grey = mul + add;
+            mDrawPaint.setColor(Color.argb(255, grey, grey, grey));
+        }
+
+// 接上代码
+// bitmap铺满
+    public void setImageBitmap(Bitmap bm) {
+        if (bm != null) {
+            mBitmapShader = new BitmapShader(bm, Shader.TileMode.CLAMP,
+                    Shader.TileMode.CLAMP);
+            mDrawPaint.setShader(mBitmapShader);
+            mBitmapRect.set(0, 0, bm.getWidth(), bm.getHeight());
+            updateBitmapScale();
+        } else {
+            mBitmapShader = null;
+            mDrawPaint.setShader(null);
+        }
+        updateFilter();
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        if (changed) {
+            mLayoutRect.set(0, 0, getWidth(), getHeight());
+            updateBitmapScale();
+        }
+    }
+
+    private void updateBitmapScale() {
+        if (mBitmapShader != null) {
+            mScaleMatrix.setRectToRect(mBitmapRect, mLayoutRect, Matrix.ScaleToFit.FILL);
+            mBitmapShader.setLocalMatrix(mScaleMatrix);
+        }
+    }
+
+
+
+```
+
+
+# Bitmap
+
+```
+        // Create the protection paints
+        mBgProtectionPaint = new Paint();
+        mBgProtectionPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        mBgProtectionPaint.setColor(0xFFffffff);
+        mBgProtectionCanvas = new Canvas();
+
+
+mBgProtectionCanvas.setBitmap(thumbnail);
+mBgProtectionCanvas.drawRect(0, 0, thumbnail.getWidth(), thumbnail.getHeight(),
+                        mBgProtectionPaint);
+mBgProtectionCanvas.setBitmap(null);
+```
+
+
+# task thumbnail
+```
+    /**
+     * Returns a task thumbnail from the activity manager
+     */
+    public static Bitmap getThumbnail(ActivityManager activityManager, int taskId) {
+        ActivityManager.TaskThumbnail taskThumbnail = activityManager.getTaskThumbnail(taskId);
+        if (taskThumbnail == null)
+            return null;
+
+        sBitmapOptions = new BitmapFactory.Options();
+        sBitmapOptions.inMutable = true;
+
+        Bitmap thumbnail = taskThumbnail.mainThumbnail;
+        ParcelFileDescriptor descriptor = taskThumbnail.thumbnailFileDescriptor;
+        if (thumbnail == null && descriptor != null) {
+            thumbnail = BitmapFactory.decodeFileDescriptor(descriptor.getFileDescriptor(),
+                    null, sBitmapOptions);
+        }
+        if (descriptor != null) {
+            try {
+                descriptor.close();
+            } catch (IOException e) {
+            }
+        }
+        return thumbnail;
+    }
+```
+
+```
+        // Create the default assets
+        Bitmap icon = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        icon.eraseColor(0x00000000);
+        mDefaultThumbnail = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        mDefaultThumbnail.setHasAlpha(false);
+        mDefaultThumbnail.eraseColor(0xFFffffff);
+        mDefaultApplicationIcon = new BitmapDrawable(context.getResources(), icon);
+```
+
+
+
+```
+        setWillNotDraw(false);
+        setClipToOutline(true);
+        setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setRect(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            }
+        });
+```
