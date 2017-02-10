@@ -406,6 +406,7 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
     private NotificationGroupManager mGroupManager;
     private View mVetoButton; // 清除通知按钮
     // The guts内脏;肠 of a notification revealed when performing a long press.
+    // 长按消息会显示，其中包括了设置按钮等操作
     private NotificationGuts mGuts;
         /** Does this row contain layouts that can adapt to row expansion */
     private boolean mExpandable;

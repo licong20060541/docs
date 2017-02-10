@@ -24,6 +24,18 @@ public class NotificationBackgroundView extends View {
         }
     }
 
+
+//view的说明：
+protected boolean verifyDrawable(Drawable who)
+If your view subclass is displaying its own Drawable objects, it should override this function and return true for any Drawable it is displaying. This allows animations for those drawables to be scheduled.
+Be sure to call through to the super class when overriding this function.
+Parameters:
+who - The Drawable to verify. Return true if it is one you are displaying, else return the result of calling through to the super class.
+Returns:
+boolean If true than the Drawable is being displayed in the view; else false and it is not allowed to animate.
+See Also:
+unscheduleDrawable(Drawable), drawableStateChanged()//
+
     @Override
     protected boolean verifyDrawable(Drawable who) {
         return super.verifyDrawable(who) || who == mBackground;
@@ -110,6 +122,90 @@ public class NotificationBackgroundView extends View {
             RippleDrawable ripple = (RippleDrawable) mBackground;
             ripple.setColor(ColorStateList.valueOf(color));
         }
+    }
+}
+```
+
+
+```
+
+/** 和上面类似，只不过这里继承FrameLayout，长按消息会显示，其中包括了设置按钮等操作
+ * The guts内脏;肠 of a notification revealed when performing a long press.
+ */
+public class NotificationGuts extends FrameLayout {
+
+    private Drawable mBackground;
+    private int mClipTopAmount;
+    private int mActualHeight;
+
+    public NotificationGuts(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        setWillNotDraw(false);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        draw(canvas, mBackground);
+    }
+
+    private void draw(Canvas canvas, Drawable drawable) {
+        if (drawable != null) {
+            drawable.setBounds(0, mClipTopAmount, getWidth(), mActualHeight);
+            drawable.draw(canvas);
+        }
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        mBackground = mContext.getDrawable(R.drawable.notification_guts_bg);
+        if (mBackground != null) {
+            mBackground.setCallback(this);
+        }
+    }
+
+    @Override
+    protected boolean verifyDrawable(Drawable who) {
+        return super.verifyDrawable(who) || who == mBackground;
+    }
+
+    @Override
+    protected void drawableStateChanged() {
+        drawableStateChanged(mBackground);
+    }
+
+    private void drawableStateChanged(Drawable d) {
+        if (d != null && d.isStateful()) {
+            d.setState(getDrawableState());
+        }
+    }
+
+    @Override
+    public void drawableHotspotChanged(float x, float y) {
+        if (mBackground != null) {
+            mBackground.setHotspot(x, y);
+        }
+    }
+
+    public void setActualHeight(int actualHeight) {
+        mActualHeight = actualHeight;
+        invalidate();
+    }
+
+    public int getActualHeight() {
+        return mActualHeight;
+    }
+
+    public void setClipTopAmount(int clipTopAmount) {
+        mClipTopAmount = clipTopAmount;
+        invalidate();
+    }
+
+    @Override
+    public boolean hasOverlappingRendering() {
+
+        // Prevents this view from creating a layer when alpha is animating.
+        return false;
     }
 }
 ```

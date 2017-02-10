@@ -96,6 +96,7 @@ public class ViewInvertHelper {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 updateInvertPaint((Float) animation.getAnimatedValue());
+                 // 应用改变
                 mTarget.setLayerType(View.LAYER_TYPE_HARDWARE, mDarkPaint);
             }
         });
@@ -116,6 +117,7 @@ public class ViewInvertHelper {
     public void update(boolean invert) {
         if (invert) {
             updateInvertPaint(1f);
+            // 应用改变
             mTarget.setLayerType(View.LAYER_TYPE_HARDWARE, mDarkPaint);
         } else {
             mTarget.setLayerType(View.LAYER_TYPE_NONE, null);
@@ -137,7 +139,8 @@ public class ViewInvertHelper {
         mMatrix.set(invert);
         mGrayscaleMatrix.setSaturation(1 - intensity);
         mMatrix.preConcat(mGrayscaleMatrix);
-        mDarkPaint.setColorFilter(new ColorMatrixColorFilter(mMatrix));
+        // 改变存储于这
+        mDarkPaint.setColorFilter(new ColorMatrixColorFilter(mMatrix)); 
     }
 }
 ```
