@@ -53,3 +53,44 @@ keyevent等于3，代表这是HOME键事件，所以第一行的作用等同于�
 关于是如何确定坐标的，其实很简单，打开开发者模式-指针位置即可查看自己实际操作时候的坐标值
 
 ```
+
+
+```
+6
+想要像银联一样，在某Activity做到手机无法截屏，甚至是adb也拿不到，那么可以在Activity中加入:
+
+getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+```
+
+```
+7
+TextView
+其中：lineSpacingExtra属性代表的是行间距，他默认是0，是一个绝对高度值。
+同时还有lineSpacingMultiplier属性，它代表行间距倍数，默认为1.0f，是一个相对高度值。
+```
+
+```
+8
+使用Spannable或Html.fromHtml
+SpannableStringBuilder：AbsoluteSizeSpan字体大小
+ForegroundColorSpan颜色
+
+```
+
+```
+LinearLayout
+android:divider="@drawable/divider"
+android:showDividers="middle"
+dividerPadding属性这里没有用到，意思很明确给divider添加padding
+
+```
+
+```
+条目中间添加间距，怎么实现呢？当然也很简单，比如添加一个高10dp的View，
+或者使用android:layout_marginTop="10dp"等方法。
+但是增加View违背了我们的初衷，并且影响性能。
+这时你就可以使用Space，他是一个轻量级的。
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+```
