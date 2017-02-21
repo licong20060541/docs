@@ -202,6 +202,9 @@ I/licong  ( 4719): ： scrollY=64
 ```
 
 updatePositionsForState()
+
+
+
 ```
     if (i == algorithmState.lastTopStackIndex + 1) {
     // 注释很明白，就是顶部栈和底部堆栈
@@ -275,5 +278,15 @@ updatePositionsForState()
             childViewState.yTranslation += mTopPadding;
         }
     }
+```
+```
+补充：状态
+        public static final int LOCATION_UNKNOWN = 0x00;
+        public static final int LOCATION_FIRST_CARD = 0x01;
+        public static final int LOCATION_TOP_STACK_HIDDEN = 0x02;
+        public static final int LOCATION_TOP_STACK_PEEKING = 0x04;
+        public static final int LOCATION_MAIN_AREA = 0x08;
+        public static final int LOCATION_BOTTOM_STACK_PEEKING = 0x10;
+        public static final int LOCATION_BOTTOM_STACK_HIDDEN = 0x20;
 ```
 

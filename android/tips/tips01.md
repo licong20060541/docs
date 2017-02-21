@@ -94,3 +94,24 @@ dividerPadding属性这里没有用到，意思很明确给divider添加padding
         android:layout_width="match_parent"
         android:layout_height="15dp"/>
 ```
+
+
+9 关闭消息后无法显示toast
+```
+现在的5.0以上机器中有一个悬浮窗权限，而且系统默认是关闭该权限的，只有用户手动打开才能显示，而且代码中也要添加如下一条权限。
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+params.type = WindowManager.LayoutParams.TYPE_TOAST
+
+
+
+通过Dialog、PopupWindow来编写一个自定义通知
+Dialog和PopupWindow显示时有一个隔板，用户是无法点击其余部分控件的，所以记得加上以上属性
+Method method = PopupWindow.class.getDeclareMethod("setTouchModal", boolean.class);
+method.setAccessible(true)
+method.invoke(popupWindow, touchModal);
+
+
+
+```
