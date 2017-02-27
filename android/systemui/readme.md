@@ -83,3 +83,24 @@ volume目录
 ```
 调节音量弹出的界面
 ```
+
+Dessert相关(甜点)
+```
+class DessertCase extends Activity
+DessertCaseView
+class DessertCaseDream extends DreamService
+
+显示的是很多甜点的图形，并不断变化
+```
+
+
+ImageWallpaper
+```
+Default built-in wallpaper that simply shows a static image.
+```
+
+Somnambulator
+```
+class Somnambulator extends Activity
+A simple activity that launches a dream.
+```
