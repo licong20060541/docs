@@ -3,7 +3,6 @@ package com.algorithm.alist;
 /**
  * [1,2,3,...,n] 找出第k大的组合数，
  * eg: [1, 2, 3]找第2大，则 132
- * 时间复杂度O(n) 空间复杂度O(1)
  */
 public class Algorithm013 {
 
