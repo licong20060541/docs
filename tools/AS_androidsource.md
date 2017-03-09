@@ -1,3 +1,10 @@
+```
+修改缓存路径 idea.properties
+idea.config.path=/letv/workspace/licong/androidAll/AndroidStudioCache/config
+idea.system.path=/letv/workspace/licong/androidAll/AndroidStudioCache/system
+```
+
+
 R文件的解析：
 
 cp out/target/common/R/com/android/systemui/R.java src/com/android/systemui/
