@@ -187,3 +187,19 @@ public class BitmapHelper {
             }
         });
 ```
+
+# Path
+
+```
+再介绍一个比较好用的 op(Path path, Path.Op op) 方法，用于将两个Path路径进行组合之后的效果设置，靠op方法可以快速组合生成一些复杂的图形效果，例如月牙形 :
+
+
+Path.Op有如下几种参数：
+
+
+Path.Op.DIFFERENCE：减去Path2后Path1剩下的部分 
+Path.Op.INTERSECT：保留Path1与Path2共同的部分 
+Path.Op.REVERSE_DIFFERENCE：减去Path1后Path2剩下的部分 
+Path.Op.UNION：保留全部Path1和Path2 
+Path.Op.XOR：包含Path1与Path2但不包括两者相交的部分
+```
