@@ -1,4 +1,4 @@
-package com.mainitem.recyclerview;
+package com.example.xumin.items.recycler;
 
 import android.content.Context;
 import android.util.AttributeSet;

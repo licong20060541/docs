@@ -1,4 +1,4 @@
-package com.mainitem.recyclerview;
+package com.example.xumin.items.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.licong10.myapplication.R;
+import com.example.xumin.items.R;
+
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
