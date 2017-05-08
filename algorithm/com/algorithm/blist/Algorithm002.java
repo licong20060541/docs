@@ -21,7 +21,7 @@ public class Algorithm002 {
         int[] water = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int[] maxLeft = new int[water.length];
         int[] maxRight = new int[water.length];
-        for (int i = 1; i <water.length; i++) {
+        for (int i = 1; i < water.length; i++) {
             maxLeft[i] = Math.max(maxLeft[i - 1], water[i - 1]);
             maxRight[water.length - 1 - i] = Math.max(
                     maxRight[water.length - i], water[water.length - i]);
@@ -29,7 +29,7 @@ public class Algorithm002 {
         int sum = 0;
         for (int i = 1; i < water.length; i++) {
             int height = Math.min(maxLeft[i], maxRight[i]);
-            if(height > water[i]) {
+            if (height > water[i]) {
                 sum = sum + height - water[i];
             }
         }
@@ -44,7 +44,7 @@ public class Algorithm002 {
         int[] water = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int max = 0; // 序号
         for (int i = 1; i < water.length; i++) {
-            if(water[max] < water[i]) {
+            if (water[max] < water[i]) {
                 max = i;
             }
         }
