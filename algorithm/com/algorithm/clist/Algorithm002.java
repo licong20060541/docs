@@ -46,8 +46,8 @@ public class Algorithm002 {
 
             ListNode tmp;
 
-            // prev代表了首元素并且是不变的，如上述的值2，head2为上述的值1位置
             //  1->2->3->4->5->nullptr, m = 2 and n = 4
+            // prevStart是1， start是2
             ListNode start = head;
             ListNode prevStart = head;
             for (int i = 0; i < m; i++) {
