@@ -39,6 +39,7 @@ public class Algorithm003 {
         // i = 5, s = 1-2-3, ... ,
         for (int i = 0; i < height.size(); ) {
             if (s.empty() || height.get(i) > height.get(s.peek())) {
+                // 递增的话不是全部push了？result没有值了，bug
                 // 为空或者遇到大的才入栈
                 s.push(i++); //只有这里加一操作
             } else {
@@ -46,6 +47,7 @@ public class Algorithm003 {
                 int tmp = s.peek();
                 s.pop();
                 // 最后留下来的肯定是最小的，因此 height.get(tmp) * i
+                // 此时这个小的数会在下次入栈
                 result = Math.max(result,
                         height.get(tmp) * (s.empty() ? i : i - s.peek() - 1));
                 System.out.println(result);
