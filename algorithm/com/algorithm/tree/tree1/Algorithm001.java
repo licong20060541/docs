@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
+ *
+ * 树的遍历有两类： 深度优先和宽度优先， 深度优先分为先根遍历和后根遍历
+ * 但二叉树还有个一般树没有的叫中序遍历：left--root--right
+ *
+ *
+ *
  * 前序遍历： 中左右
  * Binary Tree Preorder Traversal
  * 时间复杂度O(n) 空间复杂度O(n)

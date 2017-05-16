@@ -51,7 +51,95 @@ public class Algorithm002 {
     /**
      * morris
      * 时间复杂度O(n) 空间复杂度O(1)
+     *
+     *
+     * MorrisInOrder()：
+     while 没有结束
+     如果当前节点没有左后代
+        访问该节点
+        转向右节点
+     否则
+        找到左后代的最右节点，且使最右节点的右指针指向当前节点
+        转向左后代节点
+     *
      */
+
+    // java version
+    public class MorrisTree {
+        public void main(String[] args) {
+            Tree t = new Tree();
+            t = t.make();
+            t.printTree();
+        }
+    }
+
+    static class Tree{
+        private Node root;
+        private class Node{
+            private String value;
+            private Node left, right;
+            public Node(String value, Node left, Node right) {
+                this.value = value;
+                this.left = left;
+                this.right = right;
+            }
+        }
+
+        public Tree make() {
+            Tree t = new Tree();
+            t.root = new Node("F", null, null);
+            t.root.left = new Node("B", new Node("A", null, null),
+                    new Node("D", new Node("C", null, null), new Node("E", null, null)));
+            t.root.right = new Node("G", null, new Node("I", new Node("H", null, null), null));
+            return t;
+        }
+
+        void printTree() {
+            Tree t = make();
+            System.out.println("普通中序遍历结果：");
+            middleOrder(t.root);
+            System.out.println();
+            System.out.println("Morris中序遍历结果：");
+            morris_inorder(t.root);
+            //middleOrder(t.root);
+        }
+
+        private void middleOrder(Node root) {
+            if(root.left != null)
+                middleOrder(root.left);
+            System.out.print(root.value + "  ");
+            if(root.right != null)
+                middleOrder(root.right);
+        }
+
+
+        public void morris_inorder(Node root) {
+            while(root != null) {
+                if(root.left != null) {
+                    Node temp = root.left;
+                    while(temp.right != null && temp.right != root) {
+                        temp = temp.right;
+                    }
+                    if(temp.right == null) {
+                        temp.right = root;
+                        root = root.left;
+                    } else {
+                        System.out.print(root.value + " ");
+                        temp.right = null;
+                        root = root.right;
+                    }
+                } else {
+                    System.out.print(root.value + " ");
+                    root = root.right;
+                }
+            }
+
+        }
+
+    }
+
+
+
 //    void inorderMorrisTraversal(TreeNode *root) {
 //        TreeNode *cur = root, *prev = NULL;
 //        while (cur != NULL)
