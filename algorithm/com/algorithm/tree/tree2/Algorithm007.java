@@ -77,33 +77,40 @@ public class Algorithm007 {
      * 自底向上
      * 时间复杂度O(n) 空间复杂度O(log n)
      */
-    class Solution2 {
-        private class ListNode {
-            Integer val;
-            ListNode next;
-        }
+//        对比下面c的代码，发现这里应该是写错啦，ListNode*& 传的是什么？？so
+          // list = list->next; 递归时会循环变吗?应该是需要变化的！！
+//        TreeNode sortedListToBST(ListNode list, int start, int end) {
+//            if (start > end) return null;
+//            int mid = start + (end - start) / 2;
+//            TreeNode leftChild = sortedListToBST(list, start, mid - 1);
+//            TreeNode parent = new TreeNode(list.val);
+//            parent.left = leftChild;
+//            list = list.next;
+//            parent.right = sortedListToBST(list, mid + 1, end);
+//            return parent;
+//        }
 
-        TreeNode sortedListToBST(ListNode head) {
-            int len = 0;
-            ListNode p = head;
-            while (p != null) {
-                len++;
-                p = p.next;
-            }
-            return sortedListToBST(head, 0, len - 1);
-        }
-
-        TreeNode sortedListToBST(ListNode list, int start, int end) {
-            if (start > end) return null;
-            int mid = start + (end - start) / 2;
-            TreeNode leftChild = sortedListToBST(list, start, mid - 1);
-            TreeNode parent = new TreeNode(list.val);
-            parent.left = leftChild;
-            list = list.next;
-            parent.right = sortedListToBST(list, mid + 1, end);
-            return parent;
-        }
-    }
+//    class Solution {
+//        public:
+//        TreeNode *sortedListToBST(ListNode *head) {
+//            int len = 0;
+//            ListNode *p = head;
+//            while (p) {
+//                len++;
+//                p = p->next; }
+//            return sortedListToBST(head, 0, len - 1);
+//        }
+//        private:
+//        TreeNode* sortedListToBST(ListNode*& list, int start, int end) {
+//            if (start > end) return nullptr;
+//            int mid = start + (end - start) / 2;
+//            TreeNode *leftChild = sortedListToBST(list, start, mid - 1);
+//            TreeNode *parent = new TreeNode(list->val);
+//            parent->left = leftChild;
+//            list = list->next;
+//            parent->right = sortedListToBST(list, mid + 1, end);
+//            return parent;
+//        } };
 
 
 }
