@@ -19,6 +19,8 @@ package com.algorithm.tree.tree1;
   2 ->    3 -> NULL
  /   \      \
  4 -> 5->  7 -> NULL
+
+ 参考3.6题目
  */
 public class Algorithm012 {
 
