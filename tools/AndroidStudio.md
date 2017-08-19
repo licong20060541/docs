@@ -1,3 +1,11 @@
+1 gradle 修改为本地版本
+1）gradle-wrapper.properties,,,distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
+2）build.gradle,,,  
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.3.1'
+    }
+
+
 查看源码版本build/core/version_defaults.mk
 
 #内存
