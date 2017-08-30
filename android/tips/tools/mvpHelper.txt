@@ -1,1 +1,0 @@
-Android Studio插件之MVPHelper，一键生成MVP代码
