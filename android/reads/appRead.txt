@@ -20,4 +20,17 @@ md5:用BigInteger有错误，第一位为0时会省略
 
 Toast建议封装，包括取消上次
 
-Thread调用栈
+Thread调用栈：单个线程的信息和所有线程的信息：ThreadUtil。
+Thread.currentThread().getStackTrace()，  Thread.getAllStackTraces()
+
+baidu TTS
+
+RandomAccessFile
+
+ExifInterface:
+This is a class for reading and writing Exif tags in a JPEG file
+ExifInterface.setAttribute(key, value)
+
+Location.convert(latitude, Location.FORMAT_SECONDS).split(":"); // degree, minute, second
+
+Date.before/after
