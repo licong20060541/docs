@@ -12,3 +12,12 @@ Arrays.sort
 Arrays.binarySearch
 
 CommonAdapter--listview
+
+
+CameraPreview:利用TextureView显示
+
+md5:用BigInteger有错误，第一位为0时会省略
+
+Toast建议封装，包括取消上次
+
+Thread调用栈
