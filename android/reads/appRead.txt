@@ -34,3 +34,17 @@ ExifInterface.setAttribute(key, value)
 Location.convert(latitude, Location.FORMAT_SECONDS).split(":"); // degree, minute, second
 
 Date.before/after
+
+Phone信息:
+Build.MODEL,Build.DEVICE,Build.BRAND,Build.SUPPORTED_ABIS,Build.CPU_ABI,Build.CPU_ABI2,Build.VERSION.RELEASE,Build.VERSION.SDK_INT
+
+"/system/bin/ping -c 1 -w 3 " + ip -- Runtime.getRuntime().exec(pingCmd)
+
+InetAddress.getByName
+
+httpClient.addHeader("Cookie", "value");
+
+Mac mac = Mac.getInstance("HmacSHA256");
+mac.init(new SecretKeySpec(key.getBytes("UTF-8"), "HmacSHA256"));
+return new String(Hex.encodeHex(mac.doFinal(sign.getBytes("UTF-8"))));
+
