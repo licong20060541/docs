@@ -48,3 +48,13 @@ Mac mac = Mac.getInstance("HmacSHA256");
 mac.init(new SecretKeySpec(key.getBytes("UTF-8"), "HmacSHA256"));
 return new String(Hex.encodeHex(mac.doFinal(sign.getBytes("UTF-8"))));
 
+Math.toRadians() -- angdeg / 180d * PI;
+
+Location.bearingTo(Location dest) 计算角度
+
+location.hasSpeed()
+
+Fragment.isRemoving()
+FragmentManager.popBackStack()
+
+Html.fromHtml(content)
