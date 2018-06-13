@@ -58,3 +58,17 @@ Fragment.isRemoving()
 FragmentManager.popBackStack()
 
 Html.fromHtml(content)
+
+SensorManager.registerListener(this,
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL)
+   +TYPE_MAGNETIC_FIELD
+   
+new DecimalFormat("##0.00").format(number)
+
+BigDecimal bg = new BigDecimal(number);
+bg.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue()
+
+ByteBuffer bf = ByteBuffer.wrap(buf);
+bf.order(ByteOrder.LITTLE_ENDIAN);
+bf.getInt()/getLong()
