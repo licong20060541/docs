@@ -72,3 +72,5 @@ bg.setScale(1, BigDecimal.ROUND_HALF_UP).doubleValue()
 ByteBuffer bf = ByteBuffer.wrap(buf);
 bf.order(ByteOrder.LITTLE_ENDIAN);
 bf.getInt()/getLong()
+
+UUID.randomUUID().toString()
