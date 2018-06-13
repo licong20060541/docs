@@ -74,3 +74,5 @@ bf.order(ByteOrder.LITTLE_ENDIAN);
 bf.getInt()/getLong()
 
 UUID.randomUUID().toString()
+
+TextToSpeech: 系统TTS语音
