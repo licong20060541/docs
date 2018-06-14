@@ -73,6 +73,10 @@ ByteBuffer bf = ByteBuffer.wrap(buf);
 bf.order(ByteOrder.LITTLE_ENDIAN);
 bf.getInt()/getLong()
 
+buffer = ByteBuffer.allocate(100)
+buffer.putInt(0)
+OutputStream.write(buffer.array())
+
 UUID.randomUUID().toString()
 
 TextToSpeech: 系统TTS语音
