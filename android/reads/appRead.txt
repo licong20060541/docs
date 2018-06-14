@@ -90,6 +90,8 @@ provider.contains(LocationManager.GPS_PROVIDER)
 "0".equals(Settings.Secure.getString(context.getContentResolver(),
                 Settings.Secure.ALLOW_MOCK_LOCATION))
                 
-电量监听
+电量温度监听
 Intent intent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-
+BatteryManager.EXTRA_LEVEL
+BatteryManager.EXTRA_SCALE
+BatteryManager.EXTRA_TEMPERATURE
