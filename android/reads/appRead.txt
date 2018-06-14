@@ -80,3 +80,12 @@ OutputStream.write(buffer.array())
 UUID.randomUUID().toString()
 
 TextToSpeech: 系统TTS语音
+
+GPS
+String provider = Settings.Secure.getString(LutaoApp.getInstance().getContentResolver(),
+                Settings.Secure.LOCATION_PROVIDERS_ALLOWED)
+provider.contains(LocationManager.GPS_PROVIDER)
+
+模拟轨迹
+"0".equals(Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ALLOW_MOCK_LOCATION))
