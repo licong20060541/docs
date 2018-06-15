@@ -95,3 +95,36 @@ Intent intent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BA
 BatteryManager.EXTRA_LEVEL
 BatteryManager.EXTRA_SCALE
 BatteryManager.EXTRA_TEMPERATURE
+
+异常打印
+Writer writer = new StringWriter();
+PrintWriter printWriter = new PrintWriter(writer);
+e.printStackTrace(printWriter);
+Throwable cause = e.getCause();
+while (cause != null) {
+     cause.printStackTrace(printWriter);
+     cause = cause.getCause();
+}
+String result = writer.toString();
+printWriter.close();
+
+捕获crash确认后：
+startActivity(new Intent(this, HomeActivity.class));
+finish();
+
+
+camera--TextureView
+
+YuvImage.compressToJpeg
+
+
+方向传感器
+        SensorManager.registerListener(this,
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_NORMAL);
+        SensorManager.registerListener(this,
+                sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+                SensorManager.SENSOR_DELAY_NORMAL);
+      if(SensorManager.getRotationMatrix(r, null, gravity, geomagnetic))   
+      SensorManager.getOrientation(r, values);
+                
