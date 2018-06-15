@@ -96,6 +96,8 @@ BatteryManager.EXTRA_LEVEL
 BatteryManager.EXTRA_SCALE
 BatteryManager.EXTRA_TEMPERATURE
 
+Sensor.TYPE_TEMPERATURE
+
 异常打印
 Writer writer = new StringWriter();
 PrintWriter printWriter = new PrintWriter(writer);
