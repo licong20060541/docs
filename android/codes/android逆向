@@ -5,7 +5,7 @@ a
 调试方法和smali文件结构
 apk文件使用16进制打开，发现开头是50 4B 03 04--PK。。。代表的是压缩文件
 打开压缩包：dex代表代码，res目录和resources.arsc代表资源
-android killer软件
+android killer软件,android 逆向助手
 
 smali文件：
 头部定义：.class .super  .souce
@@ -25,5 +25,5 @@ Object -- L/java/lang/object;
 int[] -- [I
 Object[][] -- [[L/java/lang/object
 
-
+java -jar xxx.jar
 
