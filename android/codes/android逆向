@@ -1,0 +1,29 @@
+Java---反编译后 smali,
+C++ 反编译后 arm
+
+a
+调试方法和smali文件结构
+apk文件使用16进制打开，发现开头是50 4B 03 04--PK。。。代表的是压缩文件
+打开压缩包：dex代表代码，res目录和resources.arsc代表资源
+android killer软件
+
+smali文件：
+头部定义：.class .super  .souce
+域定义：.field public
+函数定义：.method ...   .end method
+一个smali对应一个class
+Void -- V
+boolean -- Z
+char -- C
+byte -- B
+short -- S
+int -- I
+float -- F
+long -- J
+double -- D
+Object -- L/java/lang/object;
+int[] -- [I
+Object[][] -- [[L/java/lang/object
+
+
+
