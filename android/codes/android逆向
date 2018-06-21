@@ -5,7 +5,7 @@ a
 调试方法和smali文件结构
 apk文件使用16进制打开，发现开头是50 4B 03 04--PK。。。代表的是压缩文件
 打开压缩包：dex代表代码，res目录和resources.arsc代表资源
-android killer软件,android 逆向助手
+android killer软件(设置中勾选自动，可以显示代码提示信息),android 逆向助手
 
 smali文件：
 头部定义：.class .super  .souce
@@ -26,4 +26,15 @@ int[] -- [I
 Object[][] -- [[L/java/lang/object
 
 java -jar xxx.jar
+
+android device monitor: 选中某个后，会开放8700端口。之后选择debug挂接即可。
+
+b
+ShakaApkTool.jar  !!!
+java -jar ShakaApkTool.jar可知，比apktool强大，其框架安装位置 apktool/framework/1.apk
+-df使用默认框架文件，问题：版本过低如20去反编译24的就不正确了
+d -- 反编译
+b -- 回编译
+java -jar ShakaApkTool.jar d -df in.apk -o out目录
+java -jar ShakaApkTool.jar b out目录 -o output.apk
 
