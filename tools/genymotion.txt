@@ -1,4 +1,20 @@
+1. 依次安装 virtualBox, genymotion
 
-bai pan has software
+2. 修改genymotion的adb路径为自定义的
 
-https://www.genymotion.com/download/
+3. 安装ARM_Translation_Android系列包
+
+由于genymotion是基于x86的，而大部分应用都是基于ARM的，因此，我们需要安装一个ARM_Translation_Android系列包来增强兼容性。
+
+安装步骤
+
+点击下载ARM_Translation_Android系列包
+Android 4.4及以下： ARM Translation Installer v1.1 http://www.mirrorcreator.com/files/0ZIO8PME/Genymotion-ARM-Translation_v1.1.zip_links
+Android 5.x： ARM_Translation_Lollipop https://mega.nz/#!Mt8kyBxa!iVJYC7eI7ruLVoaarWIa85QOm_VlH53G0knVGpoSlAE
+Android 6.x： ARM_Translation_Marshmallow https://mega.nz/#!p4lFlCZR!TFsb8dMqNdAJjKoCDPDDvNtcQdEB0-KkVlTgQVwG20s
+将下载的zip包，拖进Genymotion模拟器窗口，按照提示安装
+安装成功后，重启Genymotion模拟器即可。
+
+4. bai pan has software
+
+5. https://www.genymotion.com/download/
